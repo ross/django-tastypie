@@ -706,7 +706,7 @@ class ToManyField(RelatedField):
                 except ObjectDoesNotExist:
                     the_m2ms = None
 
-                if not the_m2ms:
+                if the_m2ms is None:
                     break
 
         elif callable(self.attribute):
