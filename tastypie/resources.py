@@ -486,8 +486,7 @@ class Resource(object):
         if allowed is None:
             allowed = []
 
-        override = request.META.get('X-HTTP-Method-Override', None)
-        from sys import stderr
+        override = request.META.get('HTTP_X_HTTP_METHOD_OVERRIDE', None)
         if override:
             request_method = override.lower()
         else:
