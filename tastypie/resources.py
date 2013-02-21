@@ -486,12 +486,7 @@ class Resource(object):
         if allowed is None:
             allowed = []
 
-        override = request.META.get('X-HTTP-Method-Override', None)
-        from sys import stderr
-        if override:
-            request_method = override.lower()
-        else:
-            request_method = request.method.lower()
+        request_method = request.method.lower()
         allows = ','.join(map(str.upper, allowed))
 
         if request_method == "options":
